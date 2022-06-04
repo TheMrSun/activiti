@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/activiti-spring?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8&useSSL=false
+    username: ENC(aRz23aaQQ1gNZ6p2uJQU8Q==)
+    password: ENC(HY9iqaBfzpAY1UUF3ZL59g==)
+
+  activiti:
+    #false activiti 在启动时，对比数据库中保存的版本，如果没有表或者版本不匹配，将抛出异常
+    #true activiti 会对数据库中的所有表进行更新操作，表不存在，自动创建
+    #create-drop: 在activiti启动创建表，在关闭时时，删除表（必须手动关闭引擎，才能删除表）
+    #drop-create: 在activiti启动删除原来的表，然后创建（不需要手动关闭引擎）
+    database-schema-update: drop-create
+    db-history-used: true
+    history-level: full
+    check-process-definitions: true
+
+
+# 加密的密钥(盐值)
+jasypt:
+  encryptor:
+    password: root
+
